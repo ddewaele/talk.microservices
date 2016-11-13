@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: configclient2
+
+server:
+  port: 8200
