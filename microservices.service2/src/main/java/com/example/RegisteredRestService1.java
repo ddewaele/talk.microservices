@@ -5,10 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class Service1 {
+public class RegisteredRestService1 {
 
     @RequestMapping("/data")
     public Data getData() {
-        return new Data("someData");
+        System.out.println("Calling getData...");
+        return new Data("someData from the registered service");
     }
+
 }

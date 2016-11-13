@@ -11,16 +11,16 @@ import javax.inject.Inject;
 @SpringBootApplication
 @EnableFeignClients
 @RestController
-public class Application {
+public class StaticClient1 {
 
 	@Inject
 	DataClient dataClient;
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(StaticClient1.class, args);
 	}
 
-	@RequestMapping("/")
+	@RequestMapping("/client")
 	public Data client() {
 		return dataClient.data();
 	}

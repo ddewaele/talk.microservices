@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
-@FeignClient(name = "Data",url = "${service.data.url}")
+@FeignClient("registered-service2")
 interface DataClient {
 
 		@RequestMapping(value = "/data", method = GET)
