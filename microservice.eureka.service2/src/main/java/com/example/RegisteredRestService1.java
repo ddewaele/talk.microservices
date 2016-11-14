@@ -9,7 +9,7 @@ public class RegisteredRestService1 {
 
     @RequestMapping("/data")
     public Data getData() {
-        System.out.println("Calling getData...");
+        System.out.println("Eureka data service called...");
         return new Data("someData from the registered service");
     }
 

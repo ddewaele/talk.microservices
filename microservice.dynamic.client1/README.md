@@ -27,6 +27,11 @@ Eurek exposes an XML based REST API :
 curl -v http://localhost:8761/eureka/apps/REGISTERED-SERVICE2
 ```
 
+
+```
+while sleep 1; do curl  http://localhost:8001; echo "";  done
+```
+
 Other implementations
 
 https://www.consul.io/
