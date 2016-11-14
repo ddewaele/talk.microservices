@@ -3,6 +3,9 @@ Start with a very simple zuul server and 2 simple clients
 curl https://start.spring.io/starter.tgz -d dependencies=cloud-zuul,cloud-eureka,web,security,actuator -d groupId=com.ixortalk -d artifactId=zuul.server -d name=zuul.server -d language=java -d type=maven-project -d baseDir=zuul.server | tar -xzvf -
 curl https://start.spring.io/starter.tgz -d dependencies=web,actuator -d groupId=com.ixortalk -d artifactId=simple.service1 -d name=simple.service1 -d language=java -d type=maven-project -d baseDir=simple.service1 | tar -xzvf -
 curl https://start.spring.io/starter.tgz -d dependencies=web,actuator -d groupId=com.ixortalk -d artifactId=simple.service2 -d name=simple.service2 -d language=java -d type=maven-project -d baseDir=simple.service2 | tar -xzvf -
+
+
+curl https://start.spring.io/starter.tgz -d dependencies=web,actuator -d groupId=com.ixortalk -d artifactId=simple.monitoring1 -d name=simple.monitoring1 -d language=java -d type=maven-project -d baseDir=simple.monitoring1 | tar -xzvf -
 ```
 
 A very simple config
