@@ -12,10 +12,9 @@ It binds to the Config Server (via the bootstrap configuration property `spring.
 
 The default address of `spring.cloud.config.uri` is http://localhost:8888
 
-All that clients need to do is
- 
-  
- 
+You can also specify a `spring.cloud.config.label=myversion` property to point to a specific version of the configuration for that particular application.
+
+
 ## Combining with Eureka
 
 spring.cloud.config.discovery.enabled=true

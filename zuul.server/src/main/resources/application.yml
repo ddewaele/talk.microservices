@@ -1,0 +1,17 @@
+server:
+  port: 8000
+
+zuul:
+  routes:
+
+    # Static routes
+    simpleservice1:
+      path: /simpleservice1/**
+      url: http://localhost:9001/data1
+    simpleservice2:
+      path: /simpleservice2/**
+      url: http://localhost:9002/data2
+
+    # Dynamic Eureka routes
+    registered-service1: /registered-service1/**
+    registered-service2: /registered-service2/**

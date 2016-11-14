@@ -5,12 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class RegisteredRestService1 {
+public class Service2 {
 
-    @RequestMapping("/data")
+    @RequestMapping("/data2")
     public Data getData() {
-        System.out.println("Eureka data service called...");
-        return new Data("someData from the registered service");
+        return new Data("someData from simple server 2");
     }
-
 }

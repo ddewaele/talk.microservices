@@ -14,6 +14,12 @@ curl https://start.spring.io/starter.tgz -d dependencies=web,actuator -d groupId
 curl https://start.spring.io/starter.tgz -d dependencies=web,actuator -d groupId=com.ixortalk -d artifactId=simple.client -d name=simple.client -d language=java -d type=maven-project -d baseDir=simple.client | tar -xzvf -
 ```
 
+To view some meta-data on spring initializr :
+
+```
+curl -H 'Accept: application/json' https://start.spring.io | python -m json.tool
+```
+
 ## How ?
 
 It needs to have Eureka on the classpath and the `@EnableDiscoveryClient` annotation. If Eureka is on the classpath that one will be picked.

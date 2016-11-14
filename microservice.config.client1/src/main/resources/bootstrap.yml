@@ -1,6 +1,10 @@
 spring:
   application:
     name: configclient1
+  cloud:
+    config:
+      uri: http://localhost:8888
+      label: master
 
 server:
   port: 8100

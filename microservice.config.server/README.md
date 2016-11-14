@@ -133,6 +133,30 @@ curl -X POST http://localhost:8100/refresh
 So when we update the centralized config, and issue a refresh to the spring-boot app, they will pick up the new config automatically.
  
  
+## Encrytping / decrypting
+ 
+### Encrypting
+
+```
+curl localhost:8888/encrypt -d "super strong password"
+eadaa4e2e765f2ebff88093d6b6dec1bbf885e7f90d64e4b09efd89a8d0d7bae28f48968f6fb46845e1b07714a14ac4f 
+```
+
+### Decrypting
+
+```
+curl localhost:8888/decrypt -d "eadaa4e2e765f2ebff88093d6b6dec1bbf885e7f90d64e4b09efd89a8d0d7bae28f48968f6fb46845e1b07714a14ac4f" 
+super strong password
+```
+
+
+### Store the cipher in a config file
+
+```
+config:
+   value: 'a service1-specific config value'
+   super-secret-value: '{cipher}eadaa4e2e765f2ebff88093d6b6dec1bbf885e7f90d64e4b09efd89a8d0d7bae28f48968f6fb46845e1b07714a14ac4f'
+```
  
 # References
 
