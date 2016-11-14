@@ -1,25 +1,76 @@
+# Eureka Client
 
+## What ?
 
-com.netflix.client.ClientException: Load balancer does not have available server for client: registered-service2
+A simple Eureka client allows 
 
-If you want feign to be able to talk to the registry and lookup services by name we need the following depndency :
+- its services to register themselves with a Eureka server
+- query the registry for services and calls them.
+
+## Spring Initializr
+
+```
+curl https://start.spring.io/starter.tgz -d dependencies=web,actuator -d groupId=com.ixortalk -d artifactId=simple.service -d name=simple.service -d language=java -d type=maven-project -d baseDir=simple.service | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,actuator -d groupId=com.ixortalk -d artifactId=simple.client -d name=simple.client -d language=java -d type=maven-project -d baseDir=simple.client | tar -xzvf -
+```
+
+## How ?
+
+It needs to have Eureka on the classpath and the `@EnableDiscoveryClient` annotation. If Eureka is on the classpath that one will be picked.
+The Eureka specific version of this annotation is called @EnableEurekaClient
+
 
 ```
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-eureka</artifactId>
-    <version>1.1.5.RELEASE</version>
 </dependency>
 ```
+		
+We'll also add a feign dependency so that we can talk to other services.
 
-And the following annotation 
+```
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-feign</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.netflix.feign</groupId>
+    <artifactId>feign-jackson</artifactId>
+    <version>8.18.0</version>
+</dependency>
+```        		
+		
+By default the following config is used by an application that has a `@EnableEurekaClient` annotation
 
-@EnableDiscoveryClient
+```
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+```      
 
-The Eureka specific version of this annotation is called @EnableEurekaClient
+So if you run your Eureka client in a standard location you don't need to provide anything.
 
+You do need to give your application a name
 
-curl -v http://localhost:8001/application/REGISTERED-SERVICE2 | python -m json.tool
+```
+spring:
+  application:
+    name: registered-service2
+```
+
+If you decide to run your application with a dynamic port, ensure that you also provide dynamic instanceIds. (otherwise all of your services will be registered with `<ip address>:0`
+
+```
+server:
+  port: 0
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+```
+  
+## Eureka endpoints
 
 Eurek exposes an XML based REST API :
 
@@ -27,12 +78,10 @@ Eurek exposes an XML based REST API :
 curl -v http://localhost:8761/eureka/apps/REGISTERED-SERVICE2
 ```
 
+## Calling other services (test load balancing)
 
 ```
 while sleep 1; do curl  http://localhost:8001; echo "";  done
 ```
 
-Other implementations
-
-https://www.consul.io/
-https://zookeeper.apache.org/
+  

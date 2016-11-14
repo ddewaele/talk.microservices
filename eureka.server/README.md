@@ -12,6 +12,18 @@
 - Location transparancy (no hostnames / ip adresses)
 - Avoid error prone configs 
 
+## Spring Initializr
+
+```
+curl https://start.spring.io/starter.tgz -d dependencies=cloud-eureka-server,actuator -d groupId=com.ixortalk -d artifactId=eureka.server -d name=eureka.server -d language=java -d type=maven-project -d baseDir=eureka.server | tar -xzvf -
+```
+
+To view some meta-data on spring initializr :
+
+```
+curl -H 'Accept: application/json' https://start.spring.io | python -m json.tool
+```
+
 ## How ?
 
 Add the Eureka server dependency
@@ -59,3 +71,9 @@ when starting your application, you will
 
 http://localhost:8761/
 http://localhost:8761/eureka/apps
+
+
+## Other registry implementations
+
+- [Consul](https://www.consul.io/)
+- [Zookeeper](https://zookeeper.apache.org/)
