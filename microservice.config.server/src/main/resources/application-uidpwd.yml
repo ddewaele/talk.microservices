@@ -1,0 +1,21 @@
+server:
+  port: 8888
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+#          basedir: target/config  # avoid /tmp getting wiped out containing the cloned repo.
+          uri: git@github.com:ddewaele/spring-cloud-config-repo-private.git
+          username: user1
+          password: pass1
+          cloneOnStart: true
+
+encrypt:
+#  keyStore:
+#    location: classpath:/server.jks
+#    password: letmein
+#    alias: mytestkey
+#    secret: changeme
+  key: mysecret

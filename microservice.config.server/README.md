@@ -18,15 +18,19 @@ spring:
           cloneOnStart: true
 ```
 
-If you want to secure your configuration
+This sample app has 2 additional profiles
 
-```
-#          uri: git@github.com:ddewaele/spring-cloud-config-repo-private.git
-#          username: ddewaele
-#          password: strong_password
-```
+### uidpwd
+
+If you want to connect to a private repo using username / password
+
+### sshembedded
+
+If you want to connect over SSH with an embedded private key in your configuation (useful for cloud deployments)
 
 ## REST interface
+
+The config server provides a nice REST interface like this
 
 ```
 /{application}/{profile}[/{label}]
@@ -39,7 +43,7 @@ If you want to secure your configuration
 For example to retrieve the `dev` profile config for our `configclient1` application, we can issue the following call:
 
 ```
-curl http://localhost:8888/configclient1/dev | python -m json.tool
+curl http://localhost:8888/configclient1/dev | jq
 
 {
     "label": "master",
@@ -134,6 +138,8 @@ So when we update the centralized config, and issue a refresh to the spring-boot
  
  
 ## Encrytping / decrypting
+
+There's an encryption issue with versions `> Dalon.SR1` : https://github.com/spring-cloud/spring-cloud-config/issues/767
  
 ### Encrypting
 
@@ -158,6 +164,13 @@ config:
    super-secret-value: '{cipher}eadaa4e2e765f2ebff88093d6b6dec1bbf885e7f90d64e4b09efd89a8d0d7bae28f48968f6fb46845e1b07714a14ac4f'
 ```
  
+# Connections 
+
+```
+ssh-keygen -E md5 -lf  ~/.ssh/github_deploy_key/id_rsa.pub
+2048 MD5:66:37:fd:6d:bb:e2:04:4e:c8:e7:8c:a3:b0:ef:15:8a ddewaele@MacBook-Pro-2.local (RSA)
+```
+
 # References
 
-https://cloud.spring.io/spring-cloud-config/spring-cloud-config.html
+- https://cloud.spring.io/spring-cloud-config/spring-cloud-config.html

@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:ddewaele/spring-cloud-config-repo-private.git
+          ignoreLocalSshSettings: true
+          hostKey: "AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ=="
+          hostKeyAlgorithm: ssh-rsa
+          privateKey: |
+                        -----BEGIN RSA PRIVATE KEY-----
+                        MIIEowIBAAKCAQEAxc0uc3hF4mr1YKFakokySOyjngM6IUWfzkHV4yfkJvdT5bSu
+                        yo81opARHtXkNhmPhR1hiCHLgz7vPSNigqbeFwRuC0oNut7xlXBj9VeSnQYfJsqM
+                        B6cCshs7JBHxV6xteW1119rI3a4FyglCTJiUncgV3Cf2YbNl6IXLnEMWotqxwhX9
+                        IJh6Z6OxlhH+Oy0Sv5akRqpWfhgC1nWNYpMlmVbfI19sx5XlxzFyzcJeRZB+0poB
+                        ................................................................
+                        -----END RSA PRIVATE KEY-----

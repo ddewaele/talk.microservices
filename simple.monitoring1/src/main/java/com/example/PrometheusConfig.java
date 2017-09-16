@@ -4,7 +4,7 @@ import io.prometheus.client.exporter.MetricsServlet;
 import io.prometheus.client.hotspot.DefaultExports;
 import io.prometheus.client.spring.boot.SpringBootMetricsCollector;
 import org.springframework.boot.actuate.endpoint.PublicMetrics;
-import org.springframework.boot.context.embedded.ServletRegistrationBean;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

@@ -22,7 +22,7 @@ class MyRestController {
 	@Value("${config.value}")
 	private String value = "default";
 
-	@Value("${config.secretValue}")
+	@Value("${config.super-secret-value}")
 	private String secretValue = "default";
 
 	@RequestMapping(path = "/value")

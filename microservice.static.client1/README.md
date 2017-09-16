@@ -3,6 +3,12 @@
 Simple example of a static feign client, accessing a spring boot rest service using a pre-defined url.
 
 
+```
+docker rm -f microservice.static.client1
+docker run -t --name microservice.static.client1 -p 8080:8080 -e SERVICE_DATA_URL=http://172.20.10.2:9001 ddewaele/microservice.static.client1
+```
+
+
 Has the following feign dependencies: 
 ```
 <dependency>

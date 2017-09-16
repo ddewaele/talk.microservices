@@ -20,7 +20,6 @@ To view some meta-data on spring initializr :
 curl -H 'Accept: application/json' https://start.spring.io | python -m json.tool
 ```
 
-
 ## How ?
 
 It needs to have Eureka on the classpath and the `@EnableDiscoveryClient` annotation. If Eureka is on the classpath that one will be picked.

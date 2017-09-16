@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Service1 {
 
-    @RequestMapping("/data1")
+    @RequestMapping("/data")
     public Data getData() {
-        return new Data("someData from simple server 1");
+        return new Data("someData from microservice.simple1");
     }
 }
