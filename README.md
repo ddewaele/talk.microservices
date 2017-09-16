@@ -1,0 +1,1 @@
+Some sample code for my [Spring Cloud Meetup Talk](http://slides.com/davydewaele/spring-cloud#/). 
